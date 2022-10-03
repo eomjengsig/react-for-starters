@@ -7,7 +7,11 @@ const Movie = ({ movie }) => {
         <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
       </h2>
       <h4>{movie.year}</h4>
-      <p>{movie.summary}</p>
+      <p>
+        {movie.summary.length > 235
+          ? `${movie.summary.slice(0, 235)}...`
+          : movie.summary}
+      </p>
       <ul>
         {movie.genres.map((g) => (
           <li key={g}>{g}</li>
